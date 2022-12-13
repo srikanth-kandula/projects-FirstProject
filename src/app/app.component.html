@@ -1,0 +1,26 @@
+<input (keyup)="changeImage($event)" [value]="myImageUrl">
+<br />
+<button (click)="buttonClicked = !buttonClicked" [ngClass]="{blue: buttonClicked}"
+  [ngStyle]="{'font-size.px': fontSize}">Click me</button>
+
+<ng-template [ngIf]="buttonClicked">
+  <p>This text will be shown only when the button is clicked</p>
+</ng-template>
+
+<!-- Shothand notation -->
+<p *ngIf="buttonClicked">This text will be shown only when the button is clicked</p>
+
+<app-post *ngFor="let image of images; let i=index;" [postImage]="myImageUrl" (imageClicked)="logImage($event)">
+  <p>Image number {{i}}</p>
+</app-post>
+
+
+<p>First Angular Project | titlecase</p>
+<p> {{name.toLocaleLowerCase()}} </p>
+<p> {{name | uppercase}} </p>
+<p>{{getName().toUpperCase()}}</p>
+
+<p>{{money | currency: 'INR'}}</p>
+<p>{{price | number: '1.5-10'}}</p>
+<p>{{mango | json}}</p>
+<p>{{currentDate | date: 'MMMM d EEEE YYY'}}</p>
